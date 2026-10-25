@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+artifacts/
+*.joblib
+*.pkl
+
+# Large generated demand and model-ready exports: regenerate locally from scripts.
+# Keep data/flipkart_product_catalog.csv (the small source product snapshot).
+data/synthetic_sales_daily.csv
+data/model_ready/*.csv
+!data/model_ready/feature_schema.json

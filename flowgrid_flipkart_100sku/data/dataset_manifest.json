@@ -1,0 +1,87 @@
+{
+  "dataset_name": "FlowGrid 100-SKU Flipkart Listing Snapshot + Synthetic Logistics Development Dataset",
+  "product_catalog_source": "Public Flipkart category listing pages inspected on 2026-10-24; visible prices and availability vary by seller, selected variant, PIN code and time.",
+  "product_catalog_note": "Product names, brands, pack descriptions and shown prices are source snapshots from category listing pages, not an official Flipkart API export. Warehouse stock, unit cost, logistics dimensions where approximate, demand histories, expiry dates, coordinates, routes and order events are synthetic or estimates.",
+  "data_origin": "mixed_public_product_listing_snapshot_and_synthetic_operations",
+  "scale_factor": 3,
+  "seed": 42,
+  "as_of_date": "2026-10-24",
+  "snapshot_at_utc": "2026-10-24T08:00:00Z",
+  "dimensions": {
+    "stores": 30,
+    "skus": 100,
+    "warehouses": 3,
+    "days": 365,
+    "agents": 15,
+    "vehicles": 15,
+    "orders": 60
+  },
+  "expected_sales_rows": 1095000,
+  "file_row_counts": {
+    "warehouses.csv": 3,
+    "stores.csv": 30,
+    "flipkart_product_catalog.csv": 100,
+    "skus.csv": 100,
+    "inventory_batches.csv": 600,
+    "vehicles.csv": 15,
+    "agents.csv": 15,
+    "route_estimates.csv": 90,
+    "orders.csv": 60,
+    "order_lines.csv": 120,
+    "synthetic_sales_daily.csv": 1095000,
+    "assignments.csv": 5
+  },
+  "null_counts_by_file": {
+    "warehouses.csv": 0,
+    "stores.csv": 0,
+    "flipkart_product_catalog.csv": 0,
+    "skus.csv": 0,
+    "inventory_batches.csv": 0,
+    "vehicles.csv": 0,
+    "agents.csv": 0,
+    "route_estimates.csv": 0,
+    "orders.csv": 0,
+    "order_lines.csv": 0,
+    "synthetic_sales_daily.csv": 0,
+    "assignments.csv": 0
+  },
+  "model_ready_row_counts": {
+    "sales_features.csv": 1011000,
+    "train.csv": 843000,
+    "validation.csv": 84000,
+    "test.csv": 84000
+  },
+  "model_ready_null_counts": {
+    "sales_features.csv": 0,
+    "train.csv": 0,
+    "validation.csv": 0,
+    "test.csv": 0
+  },
+  "null_policy": "Every exported CSV is required to contain zero null/blank values. Optional state uses explicit sentinels such as NONE; synthetic geometry is populated GeoJSON and explicitly labelled.",
+  "model_protocol": {
+    "feature_warmup_days": 28,
+    "split": "Chronological shared date split: final 28 dates=test; preceding 28 dates=validation; earlier dates=train.",
+    "evaluation": "Rolling-origin one-step-ahead; target-day features must be known at prediction time. synthetic_anomaly_flag is diagnostic metadata and excluded from predictors."
+  },
+  "limitations": [
+    "The product master contains observed product-name/brand/pack/price snapshots from public Flipkart category listings; price availability can vary by seller, PIN code, and time.",
+    "All generated demand, warehouse/stock, cost, logistics dimensions, batch expiry, coordinate, route, agent and order events are synthetic or estimates for development/testing only.",
+    "Coordinates and route geometry are synthetic; route_geometry is a straight line, not a road network path.",
+    "Route distance, travel time, and costs are simulated, not live Google Maps results.",
+    "Synthetic sales are not evidence of real-world forecasting performance.",
+    "SKU unit_price uses a listing-price snapshot; SKU unit_cost is synthetic and must not be treated as real procurement cost."
+  ],
+  "product_catalog_categories": {
+    "BREAKFAST_CEREAL": 15,
+    "DAIRY_POWDER": 6,
+    "EDIBLE_OIL": 15,
+    "HONEY": 5,
+    "NOODLES_SAUCES": 10,
+    "PULSES": 15,
+    "RICE": 14,
+    "SALT": 10,
+    "TEA": 10
+  },
+  "product_catalog_rows": 100,
+  "product_catalog_source_document": "docs/flipkart_product_data_sources.md"
+}

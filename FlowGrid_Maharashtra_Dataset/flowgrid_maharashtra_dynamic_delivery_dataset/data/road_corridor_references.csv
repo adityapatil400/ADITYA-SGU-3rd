@@ -1,0 +1,9 @@
+﻿corridor_id,road_designation,road_class,corridor_description,reference_from,reference_to,data_status,source_notes
+COR-NH48,NH 48,National Highway,Pune–Satara–Kolhapur corridor,Pune,Kolhapur,REFERENCE_ONLY_NOT_ROUTE_GEOMETRY,Maharashtra PWD/NHAI and OSM reference; exact path must be routed
+COR-NH65,NH 65,National Highway,Pune–Solapur corridor,Pune,Solapur,REFERENCE_ONLY_NOT_ROUTE_GEOMETRY,Approximate corridor reference; exact path must be routed
+COR-NH60,NH 60 / major highway corridor,National Highway,Pune–Nashik corridor,Pune,Nashik,REFERENCE_ONLY_NOT_ROUTE_GEOMETRY,Approximate corridor reference; verify current official road designation
+COR-NH160,NH 160,National Highway,Mumbai–Nashik corridor,Mumbai,Nashik,REFERENCE_ONLY_NOT_ROUTE_GEOMETRY,Approximate corridor reference; exact path must be routed
+COR-NH66,NH 66,National Highway,Konkan coastal corridor,Mumbai,Ratnagiri,REFERENCE_ONLY_NOT_ROUTE_GEOMETRY,NHAI reported 2026 monsoon flooding on Panvel–Indapur section; event date in evidence file
+COR-NH61,NH 61,National Highway,Ahilyanagar–Kalyan / Malshej Ghat area,Nashik,Thane,REFERENCE_ONLY_NOT_ROUTE_GEOMETRY,"Reported subsidence/closure event in July 2026; historical evidence only, not a current closure"
+COR-SM,Samruddhi Mahamarg (Hindu Hrudaysamrat Balasaheb Thackeray Maharashtra Samruddhi Mahamarg),Expressway,Mumbai–Nagpur expressway corridor,Mumbai,Nagpur,REFERENCE_ONLY_NOT_ROUTE_GEOMETRY,Approx. 701 km full corridor is a published reference; route access/ramps vary
+COR-LOCAL,Local/state-road links,State/Municipal/Rural road,Final-mile roads to town-centre points,,,REFERENCE_ONLY_NOT_ROUTE_GEOMETRY,Must be evaluated from live routing and local traffic/road notices

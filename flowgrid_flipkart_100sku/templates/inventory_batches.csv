@@ -1,0 +1,1 @@
+batch_id,warehouse_id,sku_id,lot_id,quantity_available,quantity_reserved,unit_cost,received_at,expiry_date,quality_status,verification_status,last_updated_at,data_origin,quantity_on_hand

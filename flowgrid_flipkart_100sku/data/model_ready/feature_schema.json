@@ -1,0 +1,46 @@
+{
+  "dataset": "FlowGrid model features derived from synthetic_sales_daily.csv",
+  "target": "units_sold",
+  "categorical_features": [
+    "store_id",
+    "sku_id",
+    "weekday"
+  ],
+  "numeric_features": [
+    "unit_price",
+    "day_of_week",
+    "month",
+    "is_weekend",
+    "synthetic_promo_flag",
+    "promo_feature_available",
+    "unit_price_imputed",
+    "lag_1",
+    "lag_7",
+    "lag_14",
+    "lag_28",
+    "rolling_mean_7",
+    "rolling_mean_28",
+    "rolling_std_7",
+    "rolling_std_28"
+  ],
+  "excluded_from_model_features": [
+    "synthetic_anomaly_flag",
+    "anomaly_label_available",
+    "data_origin",
+    "date",
+    "split"
+  ],
+  "split_protocol": "Chronological shared date split: final 28 dates=test; preceding 28 dates=validation; earlier dates=train.",
+  "evaluation_protocol": "Rolling-origin one-step-ahead: lag/rolling inputs use values strictly before each target date.",
+  "feature_warmup_days": 28,
+  "null_policy": "Rows with unavailable lag/rolling features are dropped; exported CSVs contain no null values.",
+  "counts": {
+    "sales_features.csv": 1011000,
+    "train.csv": 843000,
+    "validation.csv": 84000,
+    "test.csv": 84000
+  },
+  "source_data_origin_values": [
+    "synthetic_sales_generated_for_flipkart_catalog"
+  ]
+}

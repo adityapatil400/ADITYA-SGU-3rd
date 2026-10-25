@@ -1,0 +1,102 @@
+{
+  "wh_to_idx": {
+    "W-KOL": 0,
+    "W-MUM": 1,
+    "W-NGP": 2,
+    "W-PUN": 3
+  },
+  "dest_to_idx": {
+    "L-MH-AKL": 0,
+    "L-MH-AMR": 1,
+    "L-MH-BHA": 2,
+    "L-MH-BUL": 3,
+    "L-MH-CHD": 4,
+    "L-MH-CSN": 5,
+    "L-MH-DHL": 6,
+    "L-MH-DHR": 7,
+    "L-MH-GAD": 8,
+    "L-MH-GON": 9,
+    "L-MH-HNG": 10,
+    "L-MH-JAL": 11,
+    "L-MH-JLG": 12,
+    "L-MH-KOL": 13,
+    "L-MH-LAT": 14,
+    "L-MH-MUM": 15,
+    "L-MH-NDB": 16,
+    "L-MH-NDD": 17,
+    "L-MH-NGP": 18,
+    "L-MH-NSK": 19,
+    "L-MH-PLG": 20,
+    "L-MH-PRB": 21,
+    "L-MH-PUN": 22,
+    "L-MH-RAI": 23,
+    "L-MH-RAT": 24,
+    "L-MH-SAN": 25,
+    "L-MH-SAT": 26,
+    "L-MH-SIN": 27,
+    "L-MH-SOL": 28,
+    "L-MH-THN": 29,
+    "L-MH-WRD": 30,
+    "L-MH-WSH": 31,
+    "L-MH-YAV": 32
+  },
+  "corridor_to_idx": {
+    "COR-LOCAL": 0,
+    "COR-NH160": 1,
+    "COR-NH48": 2,
+    "COR-NH66": 3
+  },
+  "terrain_to_idx": {
+    "coastal_ghat": 0,
+    "forest_rural": 1,
+    "ghat_edge": 2,
+    "hilly_rural": 3,
+    "plateau": 4,
+    "urban_coastal": 5,
+    "urban_plateau": 6
+  },
+  "cat_to_idx": {
+    "BREAKFAST_CEREAL": 0,
+    "DAIRY_POWDER": 1,
+    "EDIBLE_OIL": 2,
+    "HONEY": 3,
+    "NOODLES_SAUCES": 4,
+    "PULSES": 5,
+    "RICE": 6,
+    "SALT": 7,
+    "TEA": 8
+  },
+  "numeric_means": [
+    194.16340000000002,
+    98.672315,
+    10.072415000000001,
+    0.12030500000000001,
+    9.25765,
+    1.5603605000000003,
+    2.2082979999999997,
+    390.825,
+    0.0
+  ],
+  "numeric_stds": [
+    127.79909182165576,
+    0.4751916358428463,
+    1.857858234035902,
+    0.0991678222761799,
+    24.543610196495138,
+    2.1146576433408195,
+    3.0875536330881768,
+    296.46986925318396,
+    1.0
+  ],
+  "numeric_cols": [
+    "road_distance_km_current",
+    "origin_diesel_price_inr_per_litre",
+    "vehicle_mileage_km_per_litre_assumed",
+    "traffic_congestion_index_scenario",
+    "route_delay_minutes_scenario",
+    "unit_weight_kg_source_estimate",
+    "unit_volume_l_source_estimate",
+    "unit_price_inr_source_estimate",
+    "is_urgent"
+  ]
+}

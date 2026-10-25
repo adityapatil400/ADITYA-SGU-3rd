@@ -1,0 +1,963 @@
+{
+  "timestamp": "2026-10-24T16:53:52.434Z",
+  "engineIdentity": {
+    "allocationAlgorithm": "Greedy Marginal-Value Knapsack Allocation Heuristic (Piecewise Quantile Margin Density vs Freight & Holding)",
+    "solverLibrary": "None (In-memory TypeScript heuristic, no external LP/MIP solver library)",
+    "sharedFunctionPath": "src/services/optimizationEngine.ts -> runOptimizationEngine()"
+  },
+  "seedsRun": 20,
+  "cyclesPerSeed": 9,
+  "totalDecisionRuns": 180,
+  "completedRunsCount": 180,
+  "solveTimeMs": {
+    "p50": 0.51,
+    "p95": 0.99,
+    "max": 2.46,
+    "mean": 0.55
+  },
+  "averages": {
+    "currentPractice": {
+      "stockoutUnits": 23272,
+      "totalDemandUnits": 56899,
+      "fillRatePct": 59.1,
+      "expiredUnits": 7616,
+      "rejectedUnits": 5353,
+      "totalWasteUnits": 12969,
+      "freightRupees": 45670,
+      "lostMarginRupees": 1042248
+    },
+    "textbookBaseline": {
+      "stockoutUnits": 19364,
+      "totalDemandUnits": 56899,
+      "fillRatePct": 66,
+      "expiredUnits": 9627,
+      "rejectedUnits": 0,
+      "totalWasteUnits": 9627,
+      "freightRupees": 44410,
+      "lostMarginRupees": 866476
+    },
+    "hetvaya": {
+      "stockoutUnits": 9569,
+      "totalDemandUnits": 56899,
+      "fillRatePct": 83.2,
+      "expiredUnits": 8703,
+      "rejectedUnits": 0,
+      "totalWasteUnits": 8703,
+      "freightRupees": 52694,
+      "lostMarginRupees": 242261
+    }
+  },
+  "comparisons": {
+    "stockoutReductionVsCurrentPct": -58.9,
+    "stockoutChangeVsTextbookPct": -50.6,
+    "wasteReductionVsCurrentPct": -32.9,
+    "wasteReductionVsTextbookPct": -9.6,
+    "freightReductionVsCurrentPct": 15.4,
+    "freightReductionVsTextbookPct": 18.7,
+    "lostMarginReductionVsCurrentPct": -76.8,
+    "lostMarginReductionVsTextbookPct": -72
+  },
+  "pairedComparisonsVsTextbook": [
+    {
+      "metric": "Stockout Units",
+      "unit": "units",
+      "textbookMean": 19363.7,
+      "hetvayaMean": 9569.1,
+      "meanDifference": -9794.5,
+      "percentChangeVsTextbook": -50.6,
+      "stdDifference": 1425.2,
+      "standardError": 318.7,
+      "ci95Lower": -10461.5,
+      "ci95Upper": -9127.5,
+      "tStatistic": -30.73,
+      "isSignificant": true,
+      "verdict": "SIGNIFICANT"
+    },
+    {
+      "metric": "Fill Rate",
+      "unit": "%",
+      "textbookMean": 66,
+      "hetvayaMean": 83.2,
+      "meanDifference": 17.2,
+      "percentChangeVsTextbook": 26.1,
+      "stdDifference": 2.4,
+      "standardError": 0.5,
+      "ci95Lower": 16.1,
+      "ci95Upper": 18.4,
+      "tStatistic": 31.47,
+      "isSignificant": true,
+      "verdict": "SIGNIFICANT"
+    },
+    {
+      "metric": "Total Waste",
+      "unit": "units",
+      "textbookMean": 9627,
+      "hetvayaMean": 8702.6,
+      "meanDifference": -924.4,
+      "percentChangeVsTextbook": -9.6,
+      "stdDifference": 1372,
+      "standardError": 306.8,
+      "ci95Lower": -1566.5,
+      "ci95Upper": -282.2,
+      "tStatistic": -3.01,
+      "isSignificant": true,
+      "verdict": "SIGNIFICANT"
+    },
+    {
+      "metric": "Freight Cost",
+      "unit": "₹",
+      "textbookMean": 44409.8,
+      "hetvayaMean": 52694.2,
+      "meanDifference": 8284.4,
+      "percentChangeVsTextbook": 18.7,
+      "stdDifference": 1378.2,
+      "standardError": 308.2,
+      "ci95Lower": 7639.4,
+      "ci95Upper": 8929.4,
+      "tStatistic": 26.88,
+      "isSignificant": true,
+      "verdict": "SIGNIFICANT"
+    },
+    {
+      "metric": "Lost Margin",
+      "unit": "₹",
+      "textbookMean": 866475.7,
+      "hetvayaMean": 242261.5,
+      "meanDifference": -624214.3,
+      "percentChangeVsTextbook": -72,
+      "stdDifference": 82221.6,
+      "standardError": 18385.3,
+      "ci95Lower": -662695.1,
+      "ci95Upper": -585733.4,
+      "tStatistic": -33.95,
+      "isSignificant": true,
+      "verdict": "SIGNIFICANT"
+    }
+  ],
+  "headToHeadWins": {
+    "hetvayaVsCurrent": {
+      "lowerStockouts": 20,
+      "lowerWaste": 20,
+      "lowerLostMargin": 20
+    },
+    "hetvayaVsTextbook": {
+      "lowerStockouts": 20,
+      "lowerWaste": 15,
+      "lowerLostMargin": 20
+    }
+  },
+  "distributionStats": {
+    "stockouts": {
+      "current": {
+        "mean": 23271.7,
+        "std": 3635.9,
+        "min": 14850,
+        "max": 30758
+      },
+      "textbook": {
+        "mean": 19363.7,
+        "std": 1488.5,
+        "min": 17211,
+        "max": 22622
+      },
+      "hetvaya": {
+        "mean": 9569.1,
+        "std": 895.7,
+        "min": 8279,
+        "max": 11727
+      }
+    },
+    "waste": {
+      "current": {
+        "mean": 12969.5,
+        "std": 2960.6,
+        "min": 7470,
+        "max": 19263
+      },
+      "textbook": {
+        "mean": 9627,
+        "std": 2341.5,
+        "min": 6060,
+        "max": 15227
+      },
+      "hetvaya": {
+        "mean": 8702.6,
+        "std": 3061.7,
+        "min": 4358,
+        "max": 16203
+      }
+    },
+    "lostMargin": {
+      "current": {
+        "mean": 1042247.8,
+        "std": 199298.5,
+        "min": 631423,
+        "max": 1369595
+      },
+      "textbook": {
+        "mean": 866475.7,
+        "std": 76248,
+        "min": 754526,
+        "max": 1041558
+      },
+      "hetvaya": {
+        "mean": 242261.5,
+        "std": 52546.1,
+        "min": 182188,
+        "max": 411958
+      }
+    }
+  },
+  "sensitivityDemandNoise150Pct": {
+    "currentPractice": {
+      "stockoutUnits": 23511,
+      "totalDemandUnits": 56898,
+      "fillRatePct": 58.7,
+      "expiredUnits": 7616,
+      "rejectedUnits": 5431,
+      "totalWasteUnits": 13047,
+      "freightRupees": 45541,
+      "lostMarginRupees": 1054079
+    },
+    "textbookBaseline": {
+      "stockoutUnits": 19618,
+      "totalDemandUnits": 56898,
+      "fillRatePct": 65.5,
+      "expiredUnits": 9627,
+      "rejectedUnits": 0,
+      "totalWasteUnits": 9627,
+      "freightRupees": 44272,
+      "lostMarginRupees": 880489
+    },
+    "hetvaya": {
+      "stockoutUnits": 9608,
+      "totalDemandUnits": 56898,
+      "fillRatePct": 83.1,
+      "expiredUnits": 8699,
+      "rejectedUnits": 0,
+      "totalWasteUnits": 8699,
+      "freightRupees": 52650,
+      "lostMarginRupees": 245162
+    },
+    "stockoutReductionVsCurrentPct": -59.1,
+    "stockoutChangeVsTextbookPct": -51,
+    "wasteReductionVsCurrentPct": -33.3,
+    "wasteReductionVsTextbookPct": -9.6,
+    "lostMarginReductionVsCurrentPct": -76.7,
+    "lostMarginReductionVsTextbookPct": -72.2,
+    "headToHeadWins": {
+      "hetvayaVsCurrent": {
+        "lowerStockouts": 20,
+        "lowerWaste": 20,
+        "lowerLostMargin": 20
+      },
+      "hetvayaVsTextbook": {
+        "lowerStockouts": 20,
+        "lowerWaste": 15,
+        "lowerLostMargin": 20
+      }
+    }
+  },
+  "perSeed": [
+    {
+      "seed": 0,
+      "currentPractice": {
+        "stockoutUnits": 22267,
+        "totalDemandUnits": 56087,
+        "fillRatePct": 60.3,
+        "expiredUnits": 6107,
+        "rejectedUnits": 4971,
+        "totalWasteUnits": 11078,
+        "freightRupees": 46916,
+        "lostMarginRupees": 1010636
+      },
+      "textbookBaseline": {
+        "stockoutUnits": 18972,
+        "totalDemandUnits": 56087,
+        "fillRatePct": 66.2,
+        "expiredUnits": 7238,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 7238,
+        "freightRupees": 44460,
+        "lostMarginRupees": 856504
+      },
+      "hetvaya": {
+        "stockoutUnits": 8600,
+        "totalDemandUnits": 56087,
+        "fillRatePct": 84.7,
+        "expiredUnits": 5807,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 5807,
+        "freightRupees": 54014,
+        "lostMarginRupees": 191854
+      },
+      "solveTimeMs": 1.17,
+      "completedStatus": true
+    },
+    {
+      "seed": 1,
+      "currentPractice": {
+        "stockoutUnits": 23511,
+        "totalDemandUnits": 55432,
+        "fillRatePct": 57.6,
+        "expiredUnits": 7230,
+        "rejectedUnits": 5923,
+        "totalWasteUnits": 13153,
+        "freightRupees": 46421,
+        "lostMarginRupees": 1051002
+      },
+      "textbookBaseline": {
+        "stockoutUnits": 17884,
+        "totalDemandUnits": 55432,
+        "fillRatePct": 67.7,
+        "expiredUnits": 7513,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 7513,
+        "freightRupees": 43981,
+        "lostMarginRupees": 791344
+      },
+      "hetvaya": {
+        "stockoutUnits": 9178,
+        "totalDemandUnits": 55432,
+        "fillRatePct": 83.4,
+        "expiredUnits": 6302,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 6302,
+        "freightRupees": 50277,
+        "lostMarginRupees": 210669
+      },
+      "solveTimeMs": 0.7,
+      "completedStatus": true
+    },
+    {
+      "seed": 2,
+      "currentPractice": {
+        "stockoutUnits": 27061,
+        "totalDemandUnits": 58349,
+        "fillRatePct": 53.6,
+        "expiredUnits": 5931,
+        "rejectedUnits": 6665,
+        "totalWasteUnits": 12596,
+        "freightRupees": 46561,
+        "lostMarginRupees": 1271976
+      },
+      "textbookBaseline": {
+        "stockoutUnits": 22622,
+        "totalDemandUnits": 58349,
+        "fillRatePct": 61.2,
+        "expiredUnits": 9045,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 9045,
+        "freightRupees": 43185,
+        "lostMarginRupees": 1041558
+      },
+      "hetvaya": {
+        "stockoutUnits": 9912,
+        "totalDemandUnits": 58349,
+        "fillRatePct": 83,
+        "expiredUnits": 7364,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 7364,
+        "freightRupees": 52423,
+        "lostMarginRupees": 232698
+      },
+      "solveTimeMs": 0.56,
+      "completedStatus": true
+    },
+    {
+      "seed": 3,
+      "currentPractice": {
+        "stockoutUnits": 24505,
+        "totalDemandUnits": 55937,
+        "fillRatePct": 56.2,
+        "expiredUnits": 8352,
+        "rejectedUnits": 5190,
+        "totalWasteUnits": 13542,
+        "freightRupees": 42459,
+        "lostMarginRupees": 1213472
+      },
+      "textbookBaseline": {
+        "stockoutUnits": 17720,
+        "totalDemandUnits": 55937,
+        "fillRatePct": 68.3,
+        "expiredUnits": 9957,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 9957,
+        "freightRupees": 43071,
+        "lostMarginRupees": 754526
+      },
+      "hetvaya": {
+        "stockoutUnits": 10333,
+        "totalDemandUnits": 55937,
+        "fillRatePct": 81.5,
+        "expiredUnits": 11219,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 11219,
+        "freightRupees": 50996,
+        "lostMarginRupees": 309538
+      },
+      "solveTimeMs": 0.73,
+      "completedStatus": true
+    },
+    {
+      "seed": 4,
+      "currentPractice": {
+        "stockoutUnits": 22144,
+        "totalDemandUnits": 59080,
+        "fillRatePct": 62.5,
+        "expiredUnits": 7590,
+        "rejectedUnits": 4125,
+        "totalWasteUnits": 11715,
+        "freightRupees": 47356,
+        "lostMarginRupees": 951791
+      },
+      "textbookBaseline": {
+        "stockoutUnits": 19951,
+        "totalDemandUnits": 59080,
+        "fillRatePct": 66.2,
+        "expiredUnits": 7914,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 7914,
+        "freightRupees": 45871,
+        "lostMarginRupees": 878081
+      },
+      "hetvaya": {
+        "stockoutUnits": 8997,
+        "totalDemandUnits": 59080,
+        "fillRatePct": 84.8,
+        "expiredUnits": 7015,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 7015,
+        "freightRupees": 56953,
+        "lostMarginRupees": 204574
+      },
+      "solveTimeMs": 0.51,
+      "completedStatus": true
+    },
+    {
+      "seed": 5,
+      "currentPractice": {
+        "stockoutUnits": 22671,
+        "totalDemandUnits": 55758,
+        "fillRatePct": 59.3,
+        "expiredUnits": 6088,
+        "rejectedUnits": 5076,
+        "totalWasteUnits": 11164,
+        "freightRupees": 44488,
+        "lostMarginRupees": 949481
+      },
+      "textbookBaseline": {
+        "stockoutUnits": 20328,
+        "totalDemandUnits": 55758,
+        "fillRatePct": 63.5,
+        "expiredUnits": 7809,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 7809,
+        "freightRupees": 42516,
+        "lostMarginRupees": 887421
+      },
+      "hetvaya": {
+        "stockoutUnits": 10029,
+        "totalDemandUnits": 55758,
+        "fillRatePct": 82,
+        "expiredUnits": 5358,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 5358,
+        "freightRupees": 51458,
+        "lostMarginRupees": 230897
+      },
+      "solveTimeMs": 0.6,
+      "completedStatus": true
+    },
+    {
+      "seed": 6,
+      "currentPractice": {
+        "stockoutUnits": 23116,
+        "totalDemandUnits": 58402,
+        "fillRatePct": 60.4,
+        "expiredUnits": 8666,
+        "rejectedUnits": 5087,
+        "totalWasteUnits": 13753,
+        "freightRupees": 46258,
+        "lostMarginRupees": 921418
+      },
+      "textbookBaseline": {
+        "stockoutUnits": 19230,
+        "totalDemandUnits": 58402,
+        "fillRatePct": 67.1,
+        "expiredUnits": 11106,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 11106,
+        "freightRupees": 45993,
+        "lostMarginRupees": 846550
+      },
+      "hetvaya": {
+        "stockoutUnits": 10000,
+        "totalDemandUnits": 58402,
+        "fillRatePct": 82.9,
+        "expiredUnits": 11340,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 11340,
+        "freightRupees": 52712,
+        "lostMarginRupees": 255902
+      },
+      "solveTimeMs": 0.57,
+      "completedStatus": true
+    },
+    {
+      "seed": 7,
+      "currentPractice": {
+        "stockoutUnits": 21018,
+        "totalDemandUnits": 54659,
+        "fillRatePct": 61.5,
+        "expiredUnits": 6634,
+        "rejectedUnits": 5648,
+        "totalWasteUnits": 12282,
+        "freightRupees": 45525,
+        "lostMarginRupees": 967674
+      },
+      "textbookBaseline": {
+        "stockoutUnits": 19512,
+        "totalDemandUnits": 54659,
+        "fillRatePct": 64.3,
+        "expiredUnits": 9259,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 9259,
+        "freightRupees": 42447,
+        "lostMarginRupees": 871970
+      },
+      "hetvaya": {
+        "stockoutUnits": 8845,
+        "totalDemandUnits": 54659,
+        "fillRatePct": 83.8,
+        "expiredUnits": 8107,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 8107,
+        "freightRupees": 51581,
+        "lostMarginRupees": 203460
+      },
+      "solveTimeMs": 0.52,
+      "completedStatus": true
+    },
+    {
+      "seed": 8,
+      "currentPractice": {
+        "stockoutUnits": 25153,
+        "totalDemandUnits": 54935,
+        "fillRatePct": 54.2,
+        "expiredUnits": 7585,
+        "rejectedUnits": 5502,
+        "totalWasteUnits": 13087,
+        "freightRupees": 44337,
+        "lostMarginRupees": 1291628
+      },
+      "textbookBaseline": {
+        "stockoutUnits": 20547,
+        "totalDemandUnits": 54935,
+        "fillRatePct": 62.6,
+        "expiredUnits": 11099,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 11099,
+        "freightRupees": 42427,
+        "lostMarginRupees": 944379
+      },
+      "hetvaya": {
+        "stockoutUnits": 9968,
+        "totalDemandUnits": 54935,
+        "fillRatePct": 81.9,
+        "expiredUnits": 9610,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 9610,
+        "freightRupees": 49559,
+        "lostMarginRupees": 281449
+      },
+      "solveTimeMs": 0.48,
+      "completedStatus": true
+    },
+    {
+      "seed": 9,
+      "currentPractice": {
+        "stockoutUnits": 20784,
+        "totalDemandUnits": 56430,
+        "fillRatePct": 63.2,
+        "expiredUnits": 5565,
+        "rejectedUnits": 6180,
+        "totalWasteUnits": 11745,
+        "freightRupees": 46451,
+        "lostMarginRupees": 812408
+      },
+      "textbookBaseline": {
+        "stockoutUnits": 18192,
+        "totalDemandUnits": 56430,
+        "fillRatePct": 67.8,
+        "expiredUnits": 9005,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 9005,
+        "freightRupees": 45537,
+        "lostMarginRupees": 790400
+      },
+      "hetvaya": {
+        "stockoutUnits": 8355,
+        "totalDemandUnits": 56430,
+        "fillRatePct": 85.2,
+        "expiredUnits": 6939,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 6939,
+        "freightRupees": 53358,
+        "lostMarginRupees": 192444
+      },
+      "solveTimeMs": 0.52,
+      "completedStatus": true
+    },
+    {
+      "seed": 10,
+      "currentPractice": {
+        "stockoutUnits": 24933,
+        "totalDemandUnits": 56092,
+        "fillRatePct": 55.5,
+        "expiredUnits": 11606,
+        "rejectedUnits": 6873,
+        "totalWasteUnits": 18479,
+        "freightRupees": 45028,
+        "lostMarginRupees": 1127276
+      },
+      "textbookBaseline": {
+        "stockoutUnits": 19248,
+        "totalDemandUnits": 56092,
+        "fillRatePct": 65.7,
+        "expiredUnits": 15227,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 15227,
+        "freightRupees": 43910,
+        "lostMarginRupees": 890980
+      },
+      "hetvaya": {
+        "stockoutUnits": 11727,
+        "totalDemandUnits": 56092,
+        "fillRatePct": 79.1,
+        "expiredUnits": 16203,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 16203,
+        "freightRupees": 51767,
+        "lostMarginRupees": 411958
+      },
+      "solveTimeMs": 0.51,
+      "completedStatus": true
+    },
+    {
+      "seed": 11,
+      "currentPractice": {
+        "stockoutUnits": 30758,
+        "totalDemandUnits": 58368,
+        "fillRatePct": 47.3,
+        "expiredUnits": 11266,
+        "rejectedUnits": 6438,
+        "totalWasteUnits": 17704,
+        "freightRupees": 41370,
+        "lostMarginRupees": 1369595
+      },
+      "textbookBaseline": {
+        "stockoutUnits": 18884,
+        "totalDemandUnits": 58368,
+        "fillRatePct": 67.6,
+        "expiredUnits": 13296,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 13296,
+        "freightRupees": 46109,
+        "lostMarginRupees": 837370
+      },
+      "hetvaya": {
+        "stockoutUnits": 9371,
+        "totalDemandUnits": 58368,
+        "fillRatePct": 83.9,
+        "expiredUnits": 12884,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 12884,
+        "freightRupees": 54758,
+        "lostMarginRupees": 223536
+      },
+      "solveTimeMs": 0.55,
+      "completedStatus": true
+    },
+    {
+      "seed": 12,
+      "currentPractice": {
+        "stockoutUnits": 21045,
+        "totalDemandUnits": 56292,
+        "fillRatePct": 62.6,
+        "expiredUnits": 6466,
+        "rejectedUnits": 4147,
+        "totalWasteUnits": 10613,
+        "freightRupees": 45475,
+        "lostMarginRupees": 1006368
+      },
+      "textbookBaseline": {
+        "stockoutUnits": 17211,
+        "totalDemandUnits": 56292,
+        "fillRatePct": 69.4,
+        "expiredUnits": 9200,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 9200,
+        "freightRupees": 45140,
+        "lostMarginRupees": 767336
+      },
+      "hetvaya": {
+        "stockoutUnits": 9650,
+        "totalDemandUnits": 56292,
+        "fillRatePct": 82.9,
+        "expiredUnits": 6493,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 6493,
+        "freightRupees": 50989,
+        "lostMarginRupees": 238120
+      },
+      "solveTimeMs": 0.48,
+      "completedStatus": true
+    },
+    {
+      "seed": 13,
+      "currentPractice": {
+        "stockoutUnits": 28218,
+        "totalDemandUnits": 58867,
+        "fillRatePct": 52.1,
+        "expiredUnits": 13440,
+        "rejectedUnits": 5823,
+        "totalWasteUnits": 19263,
+        "freightRupees": 43284,
+        "lostMarginRupees": 1267622
+      },
+      "textbookBaseline": {
+        "stockoutUnits": 17867,
+        "totalDemandUnits": 58867,
+        "fillRatePct": 69.6,
+        "expiredUnits": 11662,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 11662,
+        "freightRupees": 47363,
+        "lostMarginRupees": 831585
+      },
+      "hetvaya": {
+        "stockoutUnits": 9698,
+        "totalDemandUnits": 58867,
+        "fillRatePct": 83.5,
+        "expiredUnits": 13648,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 13648,
+        "freightRupees": 53937,
+        "lostMarginRupees": 239802
+      },
+      "solveTimeMs": 0.48,
+      "completedStatus": true
+    },
+    {
+      "seed": 14,
+      "currentPractice": {
+        "stockoutUnits": 23663,
+        "totalDemandUnits": 54549,
+        "fillRatePct": 56.6,
+        "expiredUnits": 6324,
+        "rejectedUnits": 5436,
+        "totalWasteUnits": 11760,
+        "freightRupees": 45452,
+        "lostMarginRupees": 1178079
+      },
+      "textbookBaseline": {
+        "stockoutUnits": 17751,
+        "totalDemandUnits": 54549,
+        "fillRatePct": 67.5,
+        "expiredUnits": 8984,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 8984,
+        "freightRupees": 43933,
+        "lostMarginRupees": 827997
+      },
+      "hetvaya": {
+        "stockoutUnits": 8437,
+        "totalDemandUnits": 54549,
+        "fillRatePct": 84.5,
+        "expiredUnits": 7312,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 7312,
+        "freightRupees": 51298,
+        "lostMarginRupees": 198823
+      },
+      "solveTimeMs": 0.44,
+      "completedStatus": true
+    },
+    {
+      "seed": 15,
+      "currentPractice": {
+        "stockoutUnits": 20210,
+        "totalDemandUnits": 58912,
+        "fillRatePct": 65.7,
+        "expiredUnits": 7247,
+        "rejectedUnits": 4234,
+        "totalWasteUnits": 11481,
+        "freightRupees": 46801,
+        "lostMarginRupees": 831087
+      },
+      "textbookBaseline": {
+        "stockoutUnits": 20457,
+        "totalDemandUnits": 58912,
+        "fillRatePct": 65.3,
+        "expiredUnits": 8226,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 8226,
+        "freightRupees": 44639,
+        "lostMarginRupees": 934061
+      },
+      "hetvaya": {
+        "stockoutUnits": 10299,
+        "totalDemandUnits": 58912,
+        "fillRatePct": 82.5,
+        "expiredUnits": 8595,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 8595,
+        "freightRupees": 54214,
+        "lostMarginRupees": 269879
+      },
+      "solveTimeMs": 0.42,
+      "completedStatus": true
+    },
+    {
+      "seed": 16,
+      "currentPractice": {
+        "stockoutUnits": 14850,
+        "totalDemandUnits": 54753,
+        "fillRatePct": 72.9,
+        "expiredUnits": 5477,
+        "rejectedUnits": 3985,
+        "totalWasteUnits": 9462,
+        "freightRupees": 47262,
+        "lostMarginRupees": 631423
+      },
+      "textbookBaseline": {
+        "stockoutUnits": 18581,
+        "totalDemandUnits": 54753,
+        "fillRatePct": 66.1,
+        "expiredUnits": 11493,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 11493,
+        "freightRupees": 42022,
+        "lostMarginRupees": 816819
+      },
+      "hetvaya": {
+        "stockoutUnits": 8279,
+        "totalDemandUnits": 54753,
+        "fillRatePct": 84.9,
+        "expiredUnits": 8151,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 8151,
+        "freightRupees": 50377,
+        "lostMarginRupees": 182188
+      },
+      "solveTimeMs": 0.49,
+      "completedStatus": true
+    },
+    {
+      "seed": 17,
+      "currentPractice": {
+        "stockoutUnits": 28651,
+        "totalDemandUnits": 60968,
+        "fillRatePct": 53,
+        "expiredUnits": 10849,
+        "rejectedUnits": 6394,
+        "totalWasteUnits": 17243,
+        "freightRupees": 44543,
+        "lostMarginRupees": 1244399
+      },
+      "textbookBaseline": {
+        "stockoutUnits": 21489,
+        "totalDemandUnits": 60968,
+        "fillRatePct": 64.8,
+        "expiredUnits": 12375,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 12375,
+        "freightRupees": 47117,
+        "lostMarginRupees": 985724
+      },
+      "hetvaya": {
+        "stockoutUnits": 11008,
+        "totalDemandUnits": 60968,
+        "fillRatePct": 81.9,
+        "expiredUnits": 11478,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 11478,
+        "freightRupees": 57544,
+        "lostMarginRupees": 300650
+      },
+      "solveTimeMs": 0.47,
+      "completedStatus": true
+    },
+    {
+      "seed": 18,
+      "currentPractice": {
+        "stockoutUnits": 17496,
+        "totalDemandUnits": 56302,
+        "fillRatePct": 68.9,
+        "expiredUnits": 3567,
+        "rejectedUnits": 3903,
+        "totalWasteUnits": 7470,
+        "freightRupees": 48779,
+        "lostMarginRupees": 695804
+      },
+      "textbookBaseline": {
+        "stockoutUnits": 18636,
+        "totalDemandUnits": 56302,
+        "fillRatePct": 66.9,
+        "expiredUnits": 6060,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 6060,
+        "freightRupees": 44731,
+        "lostMarginRupees": 791592
+      },
+      "hetvaya": {
+        "stockoutUnits": 8640,
+        "totalDemandUnits": 56302,
+        "fillRatePct": 84.7,
+        "expiredUnits": 4358,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 4358,
+        "freightRupees": 53464,
+        "lostMarginRupees": 213257
+      },
+      "solveTimeMs": 0.46,
+      "completedStatus": true
+    },
+    {
+      "seed": 19,
+      "currentPractice": {
+        "stockoutUnits": 23380,
+        "totalDemandUnits": 57814,
+        "fillRatePct": 59.6,
+        "expiredUnits": 6335,
+        "rejectedUnits": 5464,
+        "totalWasteUnits": 11799,
+        "freightRupees": 48626,
+        "lostMarginRupees": 1051817
+      },
+      "textbookBaseline": {
+        "stockoutUnits": 22191,
+        "totalDemandUnits": 57814,
+        "fillRatePct": 61.6,
+        "expiredUnits": 6072,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 6072,
+        "freightRupees": 43744,
+        "lostMarginRupees": 983317
+      },
+      "hetvaya": {
+        "stockoutUnits": 10057,
+        "totalDemandUnits": 57814,
+        "fillRatePct": 82.6,
+        "expiredUnits": 5870,
+        "rejectedUnits": 0,
+        "totalWasteUnits": 5870,
+        "freightRupees": 52205,
+        "lostMarginRupees": 253531
+      },
+      "solveTimeMs": 0.4,
+      "completedStatus": true
+    }
+  ]
+}

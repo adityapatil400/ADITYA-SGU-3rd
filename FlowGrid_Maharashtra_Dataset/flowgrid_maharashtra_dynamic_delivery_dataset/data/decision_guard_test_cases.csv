@@ -1,0 +1,13 @@
+﻿test_case_id,scenario_name,event_schema_valid,source_trusted,event_age_minutes,estimated_relative_impact,inventory_constraints_pass,route_safety_or_access_verified,expected_guard_action,rationale,data_status
+G-001,Valid urgent store order,true,true,2,0.5,true,true,AUTO_REPLAN_THEN_COMMIT_IF_FEASIBLE,"Urgency alone does not bypass inventory, capacity or commit checks.",SYNTHETIC_DECISION_GUARD_TEST_FIXTURE
+G-002,Untrusted RSS route closure claim,true,false,2,0.9,true,false,REJECT_OR_MANUAL_REVIEW,An untrusted news/RSS claim is not a verified closure.,SYNTHETIC_DECISION_GUARD_TEST_FIXTURE
+G-003,Stale GPS event,true,true,180,0.2,true,true,REQUEST_REFRESH_OR_MANUAL_REVIEW,Old location data must be marked stale.,SYNTHETIC_DECISION_GUARD_TEST_FIXTURE
+G-004,Fuel increase below materiality,true,true,3,0.002,true,true,NO_ROUTE_CHANGE; LOG_COST_DELTA,Cost may update without needless route churn.,SYNTHETIC_DECISION_GUARD_TEST_FIXTURE
+G-005,Verified diesel price shock,true,true,3,0.035,true,true,RECOMPUTE_COST; REPLAN_IF_POLICY_THRESHOLD_MET,Pricing event changes cost; route changes require measurable benefit.,SYNTHETIC_DECISION_GUARD_TEST_FIXTURE
+G-006,Heavy rain warning on ghat route,true,true,5,0.35,true,false,SIMULATE_ALTERNATIVES_AND_REQUIRE_ROUTE_SAFETY_REVIEW,Weather warning is not proof that the road is open or passable.,SYNTHETIC_DECISION_GUARD_TEST_FIXTURE
+G-007,Vehicle payload exceeded,true,true,1,0.45,true,true,REJECT_PLAN,Hard capacity constraint cannot be overridden by an LLM.,SYNTHETIC_DECISION_GUARD_TEST_FIXTURE
+G-008,Inventory reserve breached,true,true,1,0.4,false,true,REJECT_PLAN_OR_REQUEST_STOCK_REPLENISHMENT,Do not commit negative available stock.,SYNTHETIC_DECISION_GUARD_TEST_FIXTURE
+G-009,Duplicate delivery event id,true,true,1,0.5,true,true,IDEMPOTENT_NO_DUPLICATE_COMMIT,Deduplicate events before side effects.,SYNTHETIC_DECISION_GUARD_TEST_FIXTURE
+G-010,Invalid event schema,false,true,1,0.7,true,true,REJECT_EVENT,Schema validation precedes forecast/optimization.,SYNTHETIC_DECISION_GUARD_TEST_FIXTURE
+G-011,Route provider unavailable,true,true,3,0.6,true,false,NO_UNVERIFIED_ROUTE_COMMIT; MANUAL_REVIEW,Never replace failed live routing with a synthetic distance silently.,SYNTHETIC_DECISION_GUARD_TEST_FIXTURE
+G-012,Material alternative has no SLA improvement,true,true,4,0.01,true,true,KEEP_CURRENT_PLAN_AND_LOG_REASON,Avoid route churn when improvement is under the policy threshold.,SYNTHETIC_DECISION_GUARD_TEST_FIXTURE

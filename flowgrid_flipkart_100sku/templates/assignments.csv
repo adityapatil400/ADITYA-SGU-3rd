@@ -1,0 +1,1 @@
+assignment_id,order_id,agent_id,vehicle_id,origin_warehouse_id,destination_store_id,route_estimate_id,assignment_status,assigned_at,estimated_arrival,assignment_source,data_origin

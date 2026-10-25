@@ -1,0 +1,65 @@
+{
+  "generated_at": "2026-10-24T18:54:24.547362+00:00",
+  "dataset": "flowgrid_flipkart_100sku\\data\\model_ready",
+  "data_origin": "synthetic_sales_generated_for_flipkart_catalog",
+  "evaluation_protocol": "chronological train/validation/test split; rolling-origin one-step-ahead features use only earlier sales",
+  "rows": {
+    "train": 843000,
+    "validation": 84000,
+    "test": 84000
+  },
+  "active_model": "lightgbm",
+  "selection_rule": "validation WAPE; ML model must beat lag-7 seasonal naive by at least 5% relative",
+  "decision_audit": {
+    "active_model": "lightgbm",
+    "baseline_wape": 0.2805576705685833,
+    "active_model_wape": 0.1942561015929249,
+    "relative_improvement_pct": 30.76072338380842,
+    "status": "APPROVED_BY_GATE",
+    "reason": "lightgbm beat baseline by 30.76% (>= 5% required)"
+  },
+  "validation_metrics": {
+    "seasonal_naive": {
+      "wape": 0.2805576705685833,
+      "mae": 4.434845238095238,
+      "rmse": 6.683044465910228,
+      "r2": 0.7703397287360947
+    },
+    "random_forest": {
+      "wape": 0.19804203767258693,
+      "mae": 3.1305,
+      "rmse": 4.699551650347692,
+      "r2": 0.8864335563139728
+    },
+    "lightgbm": {
+      "wape": 0.1942561015929249,
+      "mae": 3.0706547619047617,
+      "rmse": 4.631675362832187,
+      "r2": 0.8896903781997514
+    }
+  },
+  "test_metrics": {
+    "seasonal_naive": {
+      "wape": 0.2777654734446391,
+      "mae": 4.434297619047619,
+      "rmse": 6.633654275557255,
+      "r2": 0.7781944220731961
+    },
+    "random_forest": {
+      "wape": 0.19748752974479322,
+      "mae": 3.1527261904761903,
+      "rmse": 4.7524367183482585,
+      "r2": 0.8861587957165284
+    },
+    "lightgbm": {
+      "wape": 0.19314969302553112,
+      "mae": 3.0834761904761905,
+      "rmse": 4.674670856760679,
+      "r2": 0.8898539642158027
+    }
+  },
+  "artifact": "demand_forecaster.joblib",
+  "notes": [
+    "Metrics describe the supplied synthetic sales panel and should not be read as measured real-world accuracy."
+  ]
+}

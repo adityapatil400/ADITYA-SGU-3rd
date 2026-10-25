@@ -1,0 +1,49 @@
+{
+  "dataset_name": "FlowGrid Maharashtra Dynamic Delivery & Road-Risk Dataset",
+  "dataset_version": "1.0.0",
+  "generation_seed": 20261024,
+  "generation_date": "2026-10-24",
+  "date_window": {
+    "start": "2026-07-27",
+    "end": "2026-10-24",
+    "days": 90
+  },
+  "scope": {
+    "locations": 33,
+    "warehouses": 4,
+    "vehicles": 230,
+    "route_options": 132,
+    "delivery_orders": 2970,
+    "delivery_order_lines": 14542,
+    "daily_route_condition_rows": 11880,
+    "daily_city_fuel_rows": 2970,
+    "operational_events": 359,
+    "decision_guard_test_cases": 12
+  },
+  "data_integrity_notes": [
+    "Only the 2026-10-24 city/district petrol and diesel rate snapshot is treated as observed. Historical fuel rows are synthetic scenarios, not actual historical quotations.",
+    "City coordinates are approximate town/district-centre points, not customer addresses or warehouse gate coordinates.",
+    "Road distance is estimated from great-circle distance multiplied by regional detour assumptions. It is not an OSRM/Google routed distance until refreshed.",
+    "Road, weather, traffic, delay and condition rows are simulated Maharashtra environment scenarios, not measured IMD, police, NHAI or traffic feeds.",
+    "Operational event stream and decision guard test cases are synthetic fixtures for testing the event-driven architecture; they are not actual business incidents.",
+    "Vehicles, fleet mileage, capacities, warehouses, orders and assignments are synthetic planning data.",
+    "Product catalogue is imported from the companion 100-SKU project snapshot; source listing prices and estimated product logistics attributes should be revalidated before commercial use."
+  ],
+  "row_counts": {
+    "warehouses.csv": 4,
+    "operational_events.csv": 359,
+    "products_100sku.csv": 100,
+    "road_corridor_references.csv": 8,
+    "delivery_assignments.csv": 2970,
+    "historical_road_event_evidence.csv": 3,
+    "locations.csv": 33,
+    "road_conditions_daily.csv": 11880,
+    "fuel_prices_daily.csv": 2970,
+    "products_source.csv": 100,
+    "vehicles.csv": 230,
+    "delivery_orders.csv": 2970,
+    "delivery_order_lines.csv": 14542,
+    "route_options.csv": 132,
+    "decision_guard_test_cases.csv": 12
+  }
+}

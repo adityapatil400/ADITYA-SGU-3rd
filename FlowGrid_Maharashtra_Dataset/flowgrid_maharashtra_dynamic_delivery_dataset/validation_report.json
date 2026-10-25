@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "errors": [],
+  "stats": {
+    "decision_guard_test_cases.csv": {
+      "rows": 12,
+      "columns": 11
+    },
+    "delivery_assignments.csv": {
+      "rows": 2970,
+      "columns": 7
+    },
+    "delivery_orders.csv": {
+      "rows": 2970,
+      "columns": 29
+    },
+    "delivery_order_lines.csv": {
+      "rows": 14542,
+      "columns": 13
+    },
+    "fuel_prices_daily.csv": {
+      "rows": 2970,
+      "columns": 10
+    },
+    "historical_road_event_evidence.csv": {
+      "rows": 3,
+      "columns": 8
+    },
+    "locations.csv": {
+      "rows": 33,
+      "columns": 15
+    },
+    "operational_events.csv": {
+      "rows": 359,
+      "columns": 13
+    },
+    "products_100sku.csv": {
+      "rows": 100,
+      "columns": 14
+    },
+    "products_source.csv": {
+      "rows": 100,
+      "columns": 23
+    },
+    "road_conditions_daily.csv": {
+      "rows": 11880,
+      "columns": 18
+    },
+    "road_corridor_references.csv": {
+      "rows": 8,
+      "columns": 8
+    },
+    "route_options.csv": {
+      "rows": 132,
+      "columns": 20
+    },
+    "vehicles.csv": {
+      "rows": 230,
+      "columns": 9
+    },
+    "warehouses.csv": {
+      "rows": 4,
+      "columns": 8
+    },
+    "routing_note": "Baseline route distances are estimates; run the OSRM enrichment script for network-routed distance/time."
+  }
+}

@@ -1,0 +1,4 @@
+warehouse_id,warehouse_name,latitude,longitude,storage_capacity_kg,daily_dispatch_capacity_kg,operating_status,data_origin
+WH-01,Demo Warehouse 01,18.515,73.798,13071,5209,ACTIVE,synthetic_demo
+WH-02,Demo Warehouse 02,18.56,73.836,19855,4036,ACTIVE,synthetic_demo
+WH-03,Demo Warehouse 03,18.605,73.874,17196,5505,ACTIVE,synthetic_demo

@@ -1,0 +1,148 @@
+{
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6
+  },
+  "pass_rate_pct": 100.0,
+  "timestamp": "2026-10-25T00:10:18.488524",
+  "results": {
+    "FR-P0-01": {
+      "title": "Data Ingestion, Sanitization & Zero-Leakage Split",
+      "prd_reference": "PRD Sec. 6.1 FR-P0-01 & Sec. 13.1",
+      "status": "PASSED",
+      "timestamp": "2026-10-25T00:10:18.043787",
+      "details": {
+        "rows_evaluated": 1095000,
+        "columns_verified": [
+          "sku_id",
+          "store_id",
+          "date",
+          "units_sold",
+          "unit_price"
+        ],
+        "negative_sales_found": false,
+        "zero_leakage_guaranteed": true,
+        "feature_nans_count": 0,
+        "train_max_date": "2026-10-08",
+        "holdout_min_date": "2026-10-09"
+      }
+    },
+    "FR-P0-02": {
+      "title": "Demand Forecasting & 5% Relative WAPE Decision Gate",
+      "prd_reference": "PRD Sec. 6.1 FR-P0-02 & Sec. 12",
+      "status": "PASSED",
+      "timestamp": "2026-10-25T00:10:18.055339",
+      "details": {
+        "baseline_wape_pct": 21.95,
+        "winning_model_wape_pct": 14.99,
+        "relative_improvement_pct": 31.71,
+        "active_model": "random_forest",
+        "threshold_required_pct": 5.0,
+        "fallback_mechanism_verified": true
+      }
+    },
+    "FR-P0-03": {
+      "title": "Constraint-Aware Allocation & Zero Hard Violations",
+      "prd_reference": "PRD Sec. 6.1 FR-P0-03 & Sec. 12 (100% Target)",
+      "status": "PASSED",
+      "timestamp": "2026-10-25T00:10:18.077622",
+      "details": {
+        "solver_status": "OPTIMAL",
+        "total_demand": 205,
+        "total_allocated": 180,
+        "total_unmet": 25,
+        "fulfillment_rate_pct": 87.8,
+        "warehouse_oversell_detected": false,
+        "hard_constraint_violations": 0
+      }
+    },
+    "SEC-12-SCENARIOS": {
+      "title": "Optimization Benefit: Controlled Scenarios vs Static Baseline",
+      "prd_reference": "PRD Sec. 12 (>=5% Lower Objective in >=2 of 3 Scenarios)",
+      "status": "PASSED",
+      "timestamp": "2026-10-25T00:10:18.286293",
+      "details": {
+        "scenarios_evaluated": 3,
+        "scenarios_meeting_5pct_target": 2,
+        "target_required": 2,
+        "scenario_breakdown": [
+          {
+            "id": "SCENARIO_1_BALANCED",
+            "name": "Normal Balanced Day",
+            "baseline_obj": 1440.0,
+            "optimizer_obj": 288.0,
+            "improvement_pct": 80.0,
+            "passed_target": true
+          },
+          {
+            "id": "SCENARIO_2_SURGE",
+            "name": "Demand Shock & Shortage Stress",
+            "baseline_obj": 140433.0,
+            "optimizer_obj": 138888.6,
+            "improvement_pct": 1.0997415137467648,
+            "passed_target": false
+          },
+          {
+            "id": "SCENARIO_3_DISRUPTION",
+            "name": "Depot Stock Cut & Route Surcharge",
+            "baseline_obj": 32146.5,
+            "optimizer_obj": 30260.1,
+            "improvement_pct": 5.868134944706272,
+            "passed_target": true
+          }
+        ]
+      }
+    },
+    "FR-P0-05": {
+      "title": "Anomaly Detection & Shock Replanning Response",
+      "prd_reference": "PRD Sec. 6.1 FR-P0-05 & Sec. 6.2 FR-P1-04",
+      "status": "PASSED",
+      "timestamp": "2026-10-25T00:10:18.473969",
+      "details": {
+        "shock_identified": true,
+        "outlier_clamping_verified": true,
+        "original_shock_units": 200,
+        "clamped_safe_units": 20
+      }
+    },
+    "FR-P0-11": {
+      "title": "Audit Traceability & Solver Latency Compliance",
+      "prd_reference": "PRD Sec. 6.1 FR-P0-11 & Sec. 11 (Latency <= 10s)",
+      "status": "PASSED",
+      "timestamp": "2026-10-25T00:10:18.488524",
+      "details": {
+        "solver_wall_time_s": 0.008,
+        "max_allowed_time_s": 10.0,
+        "decision_records_traceable": true,
+        "solver_status": "OPTIMAL"
+      }
+    }
+  },
+  "scenarios": [
+    {
+      "id": "SCENARIO_1_BALANCED",
+      "name": "Normal Balanced Day",
+      "baseline_obj": 1440.0,
+      "optimizer_obj": 288.0,
+      "improvement_pct": 80.0,
+      "passed_target": true
+    },
+    {
+      "id": "SCENARIO_2_SURGE",
+      "name": "Demand Shock & Shortage Stress",
+      "baseline_obj": 140433.0,
+      "optimizer_obj": 138888.6,
+      "improvement_pct": 1.0997415137467648,
+      "passed_target": false
+    },
+    {
+      "id": "SCENARIO_3_DISRUPTION",
+      "name": "Depot Stock Cut & Route Surcharge",
+      "baseline_obj": 32146.5,
+      "optimizer_obj": 30260.1,
+      "improvement_pct": 5.868134944706272,
+      "passed_target": true
+    }
+  ]
+}

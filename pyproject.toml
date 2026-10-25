@@ -1,0 +1,29 @@
+[project]
+name = "flowgrid-backend"
+version = "0.1.0"
+description = "FlowGrid: AI-powered distribution intelligence and inventory optimization system"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.30.0",
+    "pydantic>=2.10.0",
+    "pydantic-settings>=2.5.0",
+    "sqlalchemy>=2.0.35",
+    "alembic>=1.13.0",
+    "psycopg2-binary>=2.9.9",
+    "bcrypt>=4.0.0",
+    "pyjwt>=2.8.0",
+]
+
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "-ra -q --tb=short"
+testpaths = [
+    "tests",
+]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+

@@ -1,0 +1,1 @@
+date,store_id,sku_id,units_sold,unit_price,weekday,day_of_week,month,is_weekend,synthetic_promo_flag,synthetic_anomaly_flag,data_origin,promo_feature_available,unit_price_imputed,anomaly_label_available

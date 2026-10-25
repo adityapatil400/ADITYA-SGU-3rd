@@ -1,0 +1,1 @@
+route_estimate_id,origin_warehouse_id,destination_store_id,distance_km,travel_time_min,estimated_cost,provider,retrieved_at,freshness_status,route_geometry,data_origin,geometry_source

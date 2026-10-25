@@ -1,0 +1,5 @@
+﻿warehouse_id,warehouse_name,location_id,latitude,longitude,daily_dispatch_capacity_kg_assumed,facility_status,address_precision
+W-MUM,Mumbai Central Demo DC,L-MH-MUM,19.076,72.8777,25000,SYNTHETIC_DEMO_SITE,city-centre point; not a real facility address
+W-PUN,Pune Central Demo DC,L-MH-PUN,18.5204,73.8567,22000,SYNTHETIC_DEMO_SITE,city-centre point; not a real facility address
+W-NGP,Nagpur Central Demo DC,L-MH-NGP,21.1458,79.0882,22000,SYNTHETIC_DEMO_SITE,city-centre point; not a real facility address
+W-KOL,Kolhapur Central Demo DC,L-MH-KOL,16.705,74.2433,12000,SYNTHETIC_DEMO_SITE,city-centre point; not a real facility address
